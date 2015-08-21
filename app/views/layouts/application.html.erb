@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>codestacker <%= content_for(:title) %></title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "themes/#{session[:style]}", media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="page">
+  <div class="custom-wrapper pure-g" id="menu">
+    <div class="pure-u-1 pure-u-md-6-24">
+      <div class="pure-menu">
+        <%= link_to 'codestacker', root_path, class: 'pure-menu-heading custom-brand' %>
+        <a href="#" class="custom-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
+      </div>
+    </div>
+
+    <div class="pure-u-1 pure-u-md-14-24">
+      <div class="pure-menu pure-menu-horizontal custom-can-transform">
+        <ul class="pure-menu-list">
+          <li class="pure-menu-item"><%= nav_link_to t('app.menu.about'), about_path, class: 'pure-menu-link' %></li>
+          <% unless user_signed_in? %>
+          <li class="pure-menu-item"><%= nav_link_to t('app.menu.signup'), new_registration_path(resource_name), class: 'pure-menu-link' %></li>
+          <li class="pure-menu-item"><%= nav_link_to t('app.menu.post_as_anonymous'), new_code_path, class: 'pure-menu-link' %></li>
+          <% else %>
+          <li class="pure-menu-item"><%= nav_link_to t('app.menu.post'), new_code_path, class: 'pure-menu-link' %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pure-u-1 pure-u-md-4-24">
+      <%= styles_select_tag %>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="pure-g">
+      <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <h4 class="subtitle"><%= I18n.t('app.sidebar.title') %></h4>
+
+        <div class="l-box">
+          <% if user_signed_in? %>
+            Welcome: <b><%= current_user.login %></b>
+            <%= link_to "Logout", destroy_user_session_path, :method => 'delete' %>
+          <% else %>
+            <%= render 'devise/sessions/form' %>
+          <% end %>
+        </div>
+
+        <div class="tagcloud_before">Tagcloud +</div>
+        <%= render :partial => 'codes/tagcloud' %>
+        <div class="tagcloud_after"></div>
+      </div>
+
+      <div class="pure-u-1 pure-u-md-3-4">
+        <div class="l-box content">
+          <%= flash_message %>
+
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer id="footer">
+  <%= t('app.footer.title') %> <a href="http://www.leonardofaria.net">leonardo faria</a>.
+  <a href="https://github.com/leonardofaria/codestacker">source</a>
+</footer>
+
+<%= javascript_include_tag 'menu', 'data-turbolinks-track': true %>
+</body>
+</html>

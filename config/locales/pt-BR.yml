@@ -1,0 +1,342 @@
+---
+pt-BR:
+  app:
+    menu:
+      about: sobre
+      signup: cadastre-se
+      post_as_anonymous: publique anonimamente
+      post: novo código
+
+    sidebar:
+      title: codestacker é uma comunidade para compartilhar códigos fácil!
+      login:
+        email: e-mail
+        password: senha
+        lost: perdi a senha
+        remember: lembrar dados
+        login: entrar
+    footer:
+      title: codestacker é uma aplicação brazuca de
+      link1: Termos de uso
+      link2: Contato
+
+    breadcrumbs: você está em
+
+    code:
+      created_by: criado por
+      short: faça uma url curta
+      previous: anterior
+      next: próximo
+      comments: Comentários
+      highlight: Colorir?
+      comments_desc1: Usar meus dados (nome/email)
+      comments_desc2: Não usamos seu email para spam :)
+      comments_desc3: Se marcado, destaca seu comentário com o mesmo highlight da linguagem usada no código.
+      user: usuário
+      language: linguagem
+      tag: tag
+      showhide: exibir/esconder linhas
+      delete: deletar
+      edit: editar
+      areyousure: Você tem certeza?
+
+    post:
+      new: Novo código
+      suggest: sugestão
+      signup: cadastre-se
+      features: grátis e publique do instant messenger, dashboard entre outros recursos
+      post_as: Publicar como
+      anonymous: anônimo
+      anonymous_description: você pode enviar como anônimo também
+      form:
+        title: Título
+        desc1: Use um título amigável
+        language: Linguagem
+        select: Selecione
+        desc2: Selecione uma para colorir o código
+        desc3: Separados por vírgula
+        description: Descrição
+        desc4: Use para descrever seu código
+        code: Código
+        private: Privado?
+        desc5: Se marcado, o código não é mostrado para todos
+        friend: Email do amigo
+        send: Envie esse código para um amigo
+        send1: Olá, seu amigo está indicando esse link
+      captcha1: Imagem de Verificação
+      captcha2: Você é humano? Então, digite o código da imagem acima
+      create: Criar
+
+    signup:
+      title: novo usuário
+      desc: use seu OpenID para entrar
+      signup: Cadastre-se como um novo usuário
+      username: Usuário
+      password: Senha
+      password_again: Redigite a senha
+      post: Cadastrar
+      check: Verificar disponibilidade
+
+    about:
+      desc: codestacker é um site grátis para compartilhamento de código. Existem vários projetos como o codestacker, mas nosso diferencial são os recursos. codestacker permite postar de instant messenger ou do dashboard, não importando se você é usuário ou não. codestacker é um projeto de fim de semana de Leonardo Faria, um programador brasileiro.
+      link1: recomende leonardo no working with rails
+      link2: blog do leonardo
+      link3: twitter do leonardo
+      link4: códigos do leonardo
+      more: e... naturalmente
+
+    flash:
+      session:
+        login: Bem vindo.
+        logout: Até logo, cowboy!
+        conflict: Conflito Seu usuário do OpenID já está sendo usado por outro usuário no sistema.
+      codes:
+        edit_denied: Você não pode editar esse código.
+        created: Código publicado
+        image_fail: Imagem de verificação errada.
+        updated: Código atualizado
+        delete_denied: Você não pode remover esse código.
+        deleted: Deletado!
+        commented: Comentário postado!
+        comment_fail: Erro ao comentar. Verifique todos os campos.
+
+  date:
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+    abbr_month_names:
+    -
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+    day_names:
+    - Domingo
+    - Segunda-feira
+    - Terça-feira
+    - Quarta-feira
+    - Quinta-feira
+    - Sexta-feira
+    - Sábado
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %B"
+    month_names:
+    -
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+      about_x_years:
+        one: aproximadamente 1 ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase 1 ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: mais de 1 ano
+        other: mais de %{count} anos
+      x_days:
+        one: 1 dia
+        other: "%{count} dias"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mês
+        other: "%{count} meses"
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundo
+      year: Ano
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: deve ser aceito
+      blank: não pode ficar em branco
+      present: deve ficar em branco
+      confirmation: não é igual a %{attribute}
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      record_invalid: 'A validação falhou: %{errors}'
+      restrict_dependent_destroy:
+        one: Não é possível excluir o registro pois existe um %{record} dependente
+        many: Não é possível excluir o registro pois existem %{record} dependentes
+      taken: já está em uso
+      too_long: 'é muito longo (máximo: %{count} caracteres)'
+      too_short: 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length: não possui o tamanho esperado (%{count} caracteres)
+      other_than: deve ser diferente de %{count}
+    template:
+      body: 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: 'Não foi possível gravar %{model}: 1 erro'
+        other: 'Não foi possível gravar %{model}: %{count} erros.'
+  helpers:
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Criar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%u %n"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+    format:
+      delimiter: "."
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+          million:
+            one: milhão
+            other: milhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+          thousand: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+          unit: ''
+      format:
+        delimiter: "."
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: "."
+        format: "%n%"
+    precision:
+      format:
+        delimiter: "."
+  support:
+    array:
+      last_word_connector: " e "
+      two_words_connector: " e "
+      words_connector: ", "
+  time:
+    am: ''
+    formats:
+      default: "%a, %d de %B de %Y, %H:%M:%S %z"
+      long: "%d de %B de %Y, %H:%M"
+      short: "%d de %B, %H:%M"
+    pm: ''
+
+  activerecord:
+    models:
+      code: código
+      user: usuário
+    attributes:
+      code:
+        title: Título
+        description: Descrição
+        code: Código
+      user:
+        username: Usuário
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirmação da senha
+        role_id: Perfil
+        name: Nome
+        users: Usuário
+      language:
+        name: Linguagem
+  will_paginate:
+    previous_label: "&#8592;"
+    next_label: "&#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        zero:  "Nenhum %{model} encontrado"
+        one:   "Exibindo 1 %{model}"
+        other: "Exibindo todos %{count} %{model}"
+      single_page_html:
+        zero:  "Nenhum %{model} encontrado"
+        one:   "Exibindo 1 %{model}"
+        other: "Todos %{model} (%{count})"
+      multi_page: "Exibindo %{model} %{from} - %{to} de %{count}"
+      multi_page_html: "Exibindo %{model}: %{from}&nbsp;-&nbsp;%{to} de %{count}"

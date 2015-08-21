@@ -1,0 +1,33 @@
+<div class="pure-g">
+  <div class="pure-u-1 pure-u-md-1-2">
+	  <h3><%= I18n.t('app.index.features') %></h3>
+
+	  <ul class="list">
+	  	<li><%= I18n.t('app.index.textmate') %></li>
+	  	<li><%= I18n.t('app.index.gtalk') %></li>
+	  	<li><%= I18n.t('app.index.public') %></li>
+	  	<li><%= I18n.t('app.index.dashboard') %></li>
+	  	<li><%= I18n.t('app.index.email') %></li>
+	  	<li><%= I18n.t('app.index.widgets') %></li>
+	  	<li><%= I18n.t('app.index.feeds') %></li>
+	  	<li><%= I18n.t('app.index.openID') %></li>
+	  	<li><%= I18n.t('app.index.friendly') %></li>
+	  	<li><%= I18n.t('app.index.free') %></li>
+	  	<% unless user_signed_in? %>
+	  	<li><a href="/signup"><%= I18n.t('app.index.signup') %></a></li>
+	  	<% end %>
+	  </ul>
+  </div>
+
+  <div class="pure-u-1 pure-u-md-1-2">
+    <h3><%= I18n.t('app.index.recents') %></h3>
+
+    <% for code in Code.select("languages.name, codes.title, codes.id, codes.updated_at").joins(:language).limit(14) %>
+    <small>[<a href="/language/<%= code.name %>"><%= code.name %></a>] <a href="/codes/<%= code.id %>"><%= code.title %></a></small><br/>
+    <% end -%>
+  </div>
+</div>
+
+<h3>tagcloud</h3>
+
+<%= render :partial => 'codes/tagcloud' %>

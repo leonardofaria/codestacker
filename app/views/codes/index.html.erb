@@ -1,0 +1,13 @@
+<% @codes.each do |code| %>
+
+  <%= render partial: 'code', locals: { 'code': code } %>
+
+<% end %>
+
+
+<div class="info">
+
+	<%= will_paginate @codes %>
+	<%= page_entries_info @codes %>
+
+</div>

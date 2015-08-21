@@ -1,0 +1,7 @@
+<div class='tagcloud'>
+
+<% tag_cloud ActsAsTaggableOn::Tag.most_used(10000), %w(tagcloud1 tagcloud2 tagcloud3 tagcloud4 tagcloud5) do |tag, css_class| %>
+	<%= link_to tag.name, "/tag/" + tag.name, :class => css_class %>
+<% end %>
+
+</div>

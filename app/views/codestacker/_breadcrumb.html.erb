@@ -1,0 +1,46 @@
+<!-- TODO: generate a helper with this -->
+<h5>
+	<%= I18n.t('app.breadcrumbs') %>:
+	<a href="/">codestacker</a> &rarr;
+
+<% if controller.controller_name == "codes" %>
+	<% if controller.action_name == "new" %>
+	<%= link_to I18n.t('app.post.new'), '/post' %>
+
+	<% elsif controller.action_name == "edit" %>
+	<%= link_to "editing: #{@code.title}", edit_code_path(@code) %>
+
+	<% elsif controller.action_name == "tagcloud" %>
+	<%= link_to 'tagcloud', '/tagcloud' %>
+
+	<% else %>
+	<a href="/codes">codes</a> <%= link_to "[RSS]", formatted_codes_url(:rss), :class => 'rss' %>
+
+	<%= "&rarr; #{I18n.t('app.code.tag')}:" if params[:language] %>
+	<%= link_to params[:language], language_path(params[:language]) if params[:language] %>
+	<%= link_to "[RSS]", language_rss_path(params[:language]), :class => 'rss' if params[:language] %>
+
+	<%= "&rarr; #{I18n.t('app.code.tag')}:" if params[:user] %>
+	<%= link_to params[:user], member_path(params[:user]) if params[:user] %>
+	<%= link_to "[RSS]", member_rss_path(params[:user]), :class => 'rss' if params[:user] %>
+
+	<%= "&rarr; #{I18n.t('app.code.tag')}:" if params[:tag] %>
+	<%= link_to params[:tag], tag_path(params[:tag]) if params[:tag] %>
+	<%= link_to "[RSS]", tag_rss_path(params[:tag]), :class => 'rss' if params[:tag] %>
+
+	<%= "&rarr; search:" if params[:search] %>
+	<%= link_to params[:search], search_path(params[:search]) if params[:search] %>
+	<%= link_to "[RSS]", search_rss_path(params[:search]), :class => 'rss' if params[:search] %>
+
+	<%= "&rarr;" if @code %>
+	<%= link_to @code.title, code_path(@code) if @code %>
+	<% end %>
+
+<% elsif controller.controller_name == "users" %>
+	<%= link_to I18n.t('app.signup.title'), signup_path %>
+
+<% elsif controller.controller_name == "codestacker" %>
+	<%= link_to I18n.t('app.menu.item1'), '/about' if controller.action_name == 'about' %>
+	<%= link_to 'embed tips', '/tips' if controller.action_name == 'tips' %>
+<% end %>
+</h5>
