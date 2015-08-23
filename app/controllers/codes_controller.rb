@@ -4,7 +4,10 @@ class CodesController < ApplicationController
   # GET /codes
   # GET /codes.json
   def index
-    @codes = Code.paginate(page: params[:page])
+    user = params[:user] ||= nil
+    tag = params[:tag] ||= nil
+
+    @codes = Code.get_codes(user, tag).paginate(page: params[:page])
   end
 
   # GET /codes/1

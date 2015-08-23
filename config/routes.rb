@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   devise_for :users, path: "account", path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }
 
   resources :codes
+  get 'user/:user' => 'codes#index', as: 'user_code'
+  get 'tag/:tag' => 'codes#index', as: 'tag_code'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

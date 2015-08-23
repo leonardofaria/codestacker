@@ -7,12 +7,12 @@
 	<%= code.highlighted_code %>
 
 	<footer>
-	  created by <%= link_to code.user.login, code %> &#8212;
+	  created by <%= link_to code.user.username, user_code_path(code.user.username) %> &#8212;
 	  <%= l code.created_at, format: :short %>
 	  <% if code.tag_list.size > 0 %>
 	  	&#8212; tags:
 	  	<% for tag in code.tag_list.sort! %>
-	  		<%= link_to tag, tag %>
+	  		<%= link_to tag, tag_code_path(tag) %>
 	  	<% end %>
 	  <% end %>
 	</footer>
