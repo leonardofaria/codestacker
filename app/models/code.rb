@@ -38,4 +38,8 @@ class Code < ActiveRecord::Base
     return tagged_with(tag) if tag
     all
   end
+
+  def to_param
+    "#{self.id}-#{self.title.parameterize}"
+  end
 end
