@@ -45,7 +45,8 @@
         <div class="l-box">
           <% if user_signed_in? %>
             Welcome: <b><%= current_user.login %></b>
-            <%= link_to "Logout", destroy_user_session_path, :method => 'delete' %>
+            <%= link_to "Edit my account", edit_user_registration_path %>
+            <%= link_to "Logout", destroy_user_session_path, method: 'delete' %>
           <% else %>
             <%= render 'devise/sessions/form' %>
           <% end %>

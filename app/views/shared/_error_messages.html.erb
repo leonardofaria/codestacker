@@ -1,0 +1,11 @@
+<% if target.errors.any? %>
+<div class="pure-alert pure-alert-error">
+  <h3><%= t("errors.template.header", model: target.class.model_name.human, count: target.errors.count) -%></h3>
+
+  <ul>
+  <% target.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>

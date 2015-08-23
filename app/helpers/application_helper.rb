@@ -4,7 +4,7 @@ module ApplicationHelper
 	def flash_message
 	  messages = ''
 	  [:notice, :info, :warning, :alert].each do |message|
-	    messages += "<div class=\"alert alert-#{message}\">#{flash[message]}</div>" if flash[message]
+	    messages += "<div class=\"pure-alert pure-alert-#{message}\">#{flash[message]}</div>" if flash[message]
 	    flash[message] = nil
 	  end
 	  messages.html_safe

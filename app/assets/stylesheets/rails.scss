@@ -1,0 +1,29 @@
+// flash messages
+.pure-alert {
+	border-radius: 5px;
+}
+
+.pure-alert-alert {
+	@extend .pure-alert-error;
+}
+
+.pure-alert-notice {
+	@extend .pure-alert-success;
+}
+
+
+// rails validation messages
+
+.pure-alert h3 {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.84);
+	font-weight: lighter;
+	margin: 0 0 15px 0;
+	padding-bottom: 5px;
+	text-transform: uppercase;
+}
+
+.pure-alert ul {
+	font-size: 90%;
+	margin: 0;
+	padding-left: 15px;
+}
