@@ -1,0 +1,11 @@
+<% style = params[:style] ? params[:style] : 'Monokai' %>
+<% lines = params[:lines] ? params[:lines] : false %>
+document.write('<%= stylesheet_link_tag "embed" %>');
+document.write('<%= stylesheet_link_tag "themes/#{style}" %>');
+document.write('<div class="codestacker">');
+document.write('<%= escape_javascript(@code.highlighted_code) %>');
+document.write('<div class="credits">');
+document.write('<%= link_to @code.title, code_url(@code) %>');
+document.write('&nbsp;&#8212; powered by <a href="http://codestacker.com">codestacker</a>');
+document.write('</div>');
+document.write('</div>');

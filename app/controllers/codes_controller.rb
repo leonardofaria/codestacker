@@ -1,5 +1,5 @@
 class CodesController < ApplicationController
-  before_action :set_code, only: [:show, :edit, :update, :destroy]
+  before_action :set_code, only: [:show, :embed, :edit, :update, :destroy]
 
   # GET /codes
   # GET /codes.json
@@ -13,6 +13,12 @@ class CodesController < ApplicationController
   # GET /codes/1
   # GET /codes/1.json
   def show
+  end
+
+  def embed
+    respond_to do |format|
+      format.js
+    end
   end
 
   # GET /codes/new

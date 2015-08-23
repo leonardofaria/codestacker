@@ -15,6 +15,12 @@
 	  		<%= link_to tag, tag_code_path(tag) %>
 	  	<% end %>
 	  <% end %>
+
+	  &#8212; <label for="embed-<%= code.id %>" class="tooltip-label">embed</label>
+	  <input type="checkbox" value="selected" id="embed-<%= code.id %>" class="tooltip-input">
+	  <span role="tooltip" class="tooltip-content">
+	    <a href="/tips/">see embed tips</a> or paste in your blog: <input type="text" value="<script src='<%= embed_code_url(code.id) %>'></script>" size="50" />
+		</span>
 	</footer>
 
 </div>
