@@ -2,7 +2,7 @@
 
   <fieldset class="pure-group">
 
-    <%= f.email_field :email, autofocus: true, placeholder: t('app.sidebar.login.email'), class: 'pure-input-1' %>
+    <%= f.text_field :login, autofocus: true, placeholder: t('app.sidebar.login.email'), class: 'pure-input-1' %>
     <%= f.password_field :password, autocomplete: "off", placeholder: t('app.sidebar.login.password'), class: 'pure-input-1' %>
 
   </fieldset>
@@ -18,16 +18,5 @@
   <%= f.submit t('app.sidebar.login.login'), class: 'pure-button pure-input-1 pure-button-primary' %>
 
 <% end %>
-<!--
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| -%>
-  <p><%= f.label :identity_url %></p>
-  <p><%= f.text_field :identity_url %></p>
 
-  <% if devise_mapping.rememberable? -%>
-    <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
-  <% end -%>
-
-  <p><%= f.submit "Sign in" %></p>
-<% end -%>
--->
 <%= render "devise/shared/links" %>
