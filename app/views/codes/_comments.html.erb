@@ -1,0 +1,50 @@
+<section>
+	<h2><%= t('app.code.comments') %></h2>
+
+	<% for comment in @code.comments %>
+	<div class="comment <%= cycle("even", "odd") %>">
+		<%= simple_format(auto_link(comment.body, :all)) %>
+
+		<br/><small><%= link_to comment.name, 'mailto:' + comment.email %> &#8212; <%= comment.created_at %></small>
+	</div>
+	<% end %>
+
+	<%= render "shared/error_messages", :target => @code %>
+
+	<%= form_for(@code, url: code_comment_path(@code), method: 'put', html: { class: 'pure-form pure-g comment' }) do |f| %>
+
+		<%= f.fields_for :comments_attributes do |ff| %>
+
+		  <div class="pure-u-4-24">
+		    <%= ff.label :name %>
+		  </div>
+		  <div class="pure-u-20-24">
+		    <%= ff.text_field :name, class: 'pure-input-1' %>
+		  </div>
+
+		  <div class="pure-u-4-24">
+		    <%= ff.label :email %>
+		  </div>
+		  <div class="pure-u-20-24">
+		    <%= ff.text_field :email, class: 'pure-input-1' %>
+		  </div>
+
+		  <div class="pure-u-4-24">
+		    <%= ff.label :body %>
+		  </div>
+		  <div class="pure-u-20-24">
+		    <%= ff.text_area :body, rows: 5, class: 'pure-input-1' %>
+		  </div>
+
+		  <div class="pure-u-4-24">
+		  </div>
+
+		  <div class="pure-u-20-24">
+		    <%= f.submit class: 'pure-button pure-button-primary' %>
+		  </div>
+
+		<% end %>
+
+	<% end %>
+
+</section>

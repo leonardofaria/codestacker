@@ -2,6 +2,9 @@ class Code < ActiveRecord::Base
   belongs_to :language
   belongs_to :user
 
+  has_many :comments, dependent: :destroy
+  accepts_nested_attributes_for :comments, reject_if: :all_blank
+
   validates :title, presence: true
   validates :code, presence: true
   validates :language, presence: true

@@ -255,7 +255,7 @@ body {
 		}
 
 		pre {
-			font-family: monaco, monospace, courier, 'courier new' !important;
+			font: 90% monaco, monospace, courier, 'courier new' !important;
 			overflow: scroll;
 			padding: 5px;
 			width: calc(100% - 10px);
@@ -286,7 +286,7 @@ body {
 		}
 
 		.pure-form {
-			.pure-u-1-4 {
+			.pure-u-4-24 {
 				text-align: right;
 
 				label {
@@ -296,9 +296,17 @@ body {
 				}
 			}
 
-			.pure-u-3-4 {
+			.pure-u-20-24 {
 				margin-bottom: 10px;
 			}
+		}
+
+		.pure-form.comment {
+			background: $light-gray;
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+			margin: 10px -10px -10px -10px;
+			padding: 10px 10px 0 10px;
 		}
 	}
 

@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   devise_for :users, path: "account", path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }
 
-  resources :codes
+  resources :codes do
+    put 'comment'
+  end
   get 'user/:user' => 'codes#index', as: 'user_code'
   get 'tag/:tag' => 'codes#index', as: 'tag_code'
   get ':id.js' => 'codes#embed', format: 'js', as: 'embed_code'

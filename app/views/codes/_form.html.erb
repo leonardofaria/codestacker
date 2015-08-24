@@ -2,47 +2,47 @@
 
 <%= form_for(@code, html: { class: 'pure-form pure-g' }) do |f| %>
 
-  <div class="pure-u-1-4">
+  <div class="pure-u-4-24">
     <%= f.label :title %>
   </div>
-  <div class="pure-u-3-4">
+  <div class="pure-u-20-24">
     <%= f.text_field :title, class: 'pure-input-1' %>
   </div>
 
-  <div class="pure-u-1-4">
+  <div class="pure-u-4-24">
     <%= f.label :description %>
   </div>
-  <div class="pure-u-3-4">
+  <div class="pure-u-20-24">
     <%= f.text_area :description, class: 'pure-input-1', rows: 3 %>
   </div>
 
-  <div class="pure-u-1-4">
+  <div class="pure-u-4-24">
     <%= f.label :language_id %>
   </div>
-  <div class="pure-u-3-4">
+  <div class="pure-u-20-24">
     <%= f.collection_select :language_id, Language.all, :id, :name, include_blank: '' %>
   </div>
 
-  <div class="pure-u-1-4">
+  <div class="pure-u-4-24">
     <%= f.label :code %>
   </div>
-  <div class="pure-u-3-4">
+  <div class="pure-u-20-24">
     <%= f.text_area :code, class: 'pure-input-1', rows: 10 %>
   </div>
 
-  <div class="pure-u-1-4">
+  <div class="pure-u-4-24">
     <%= f.label :privated %>
   </div>
-  <div class="pure-u-3-4">
+  <div class="pure-u-20-24">
     <label class="pure-checkbox">
       <%= f.check_box :privated %>
     </label>
   </div>
 
-  <div class="pure-u-1-4">
+  <div class="pure-u-4-24">
   </div>
 
-  <div class="pure-u-3-4">
+  <div class="pure-u-20-24">
     <%= f.submit class: 'pure-button pure-button-primary' %>
   </div>
 

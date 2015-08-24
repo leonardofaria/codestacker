@@ -41,6 +41,7 @@ gem 'nav_lynx'
 
 # Code's related
 gem 'acts-as-taggable-on'
+gem 'rails_autolink'
 gem 'RedCloth'
 gem 'rouge'
 

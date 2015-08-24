@@ -50,13 +50,24 @@ class CodesController < ApplicationController
   # PATCH/PUT /codes/1.json
   def update
     respond_to do |format|
-      if @code.update(code_params)
+      if @code.update!(comments: code_params[:comment])
         format.html { redirect_to @code, notice: 'Code was successfully updated.' }
         format.json { render :show, status: :ok, location: @code }
       else
         format.html { render :edit }
         format.json { render json: @code.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def comment
+    @code = Code.find(params[:code_id])
+
+    begin
+      @code.comments.create!(code_params[:comments_attributes])
+      redirect_to @code, notice: 'Comment was successfully created.'
+    rescue ActiveRecord::RecordInvalid => e
+      redirect_to @code, alert: 'Check your comment'
     end
   end
 
@@ -78,6 +89,6 @@ class CodesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def code_params
-      params.require(:code).permit(:title, :code, :language_id, :description, :privated)
+      params.require(:code).permit(:title, :code, :language_id, :description, :privated, comments_attributes: [:name, :email, :body])
     end
 end
