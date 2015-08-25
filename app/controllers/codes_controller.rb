@@ -1,6 +1,6 @@
 class CodesController < ApplicationController
   before_action :set_code, only: [:show, :embed, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show, :new]
+  before_action :authenticate_user!, except: [:index, :show, :new, :create]
 
   # GET /codes
   # GET /codes.json
@@ -8,7 +8,7 @@ class CodesController < ApplicationController
     user = params[:user] ||= nil
     tag = params[:tag] ||= nil
 
-    @codes = Code.get_codes(user, tag).paginate(page: params[:page])
+    @codes = Code.get_codes(current_user, user, tag).paginate(page: params[:page])
   end
 
   # GET /codes/1
@@ -29,12 +29,14 @@ class CodesController < ApplicationController
 
   # GET /codes/1/edit
   def edit
+    admin_or_owner_required(@code.user_id)
   end
 
   # POST /codes
   # POST /codes.json
   def create
     @code = Code.new(code_params)
+    @code.user_id = user_signed_in? ? current_user.id : 1
 
     respond_to do |format|
       if @code.save
@@ -50,8 +52,10 @@ class CodesController < ApplicationController
   # PATCH/PUT /codes/1
   # PATCH/PUT /codes/1.json
   def update
+    admin_or_owner_required(@code.user_id)
+
     respond_to do |format|
-      if @code.update!(comments: code_params[:comment])
+      if @code.update(code_params)
         format.html { redirect_to @code, notice: 'Code was successfully updated.' }
         format.json { render :show, status: :ok, location: @code }
       else
@@ -75,6 +79,8 @@ class CodesController < ApplicationController
   # DELETE /codes/1
   # DELETE /codes/1.json
   def destroy
+    admin_or_owner_required(@code.user_id)
+
     @code.destroy
     respond_to do |format|
       format.html { redirect_to codes_url, notice: 'Code was successfully destroyed.' }
@@ -86,11 +92,10 @@ class CodesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_code
       @code = Code.find(params[:id])
-      admin_or_owner_required(@code.user_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def code_params
-      params.require(:code).permit(:title, :code, :language_id, :description, :privated, comments_attributes: [:name, :email, :body])
+      params.require(:code).permit(:title, :code, :language_id, :description, :tag_list, :privated, comments_attributes: [:name, :email, :body])
     end
 end

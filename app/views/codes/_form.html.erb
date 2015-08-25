@@ -31,6 +31,13 @@
   </div>
 
   <div class="pure-u-4-24">
+    <%= f.label :tag_list %>
+  </div>
+  <div class="pure-u-20-24">
+    <%= f.text_field :tag_list, value: @code.tag_list.to_s, class: 'pure-input-1' %>
+  </div>
+
+  <div class="pure-u-4-24">
     <%= f.label :privated %>
   </div>
   <div class="pure-u-20-24">

@@ -36,10 +36,12 @@ class Code < ActiveRecord::Base
     end
   end
 
-  def self.get_codes(user, tag)
-    return where(users: { username: user }).joins(:user) if user
+  def self.get_codes(current_user, user, tag)
+    return where(users: { username: user }).joins(:user) if !current_user.nil? and current_user.username == user
+    return where(users: { username: user }, privated: false).joins(:user) if user
     return tagged_with(tag) if tag
-    all
+    return all.flatten.find_all { |code| code.user.username == current_user.username || code.privated == false } unless current_user.nil?
+    all.where(privated: false)
   end
 
   def to_param

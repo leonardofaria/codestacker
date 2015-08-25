@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   helper_method :admin_or_owner_required
 
   def admin_or_owner_required(id)
-    unless (current_user.id == id || current_user.role.name == 'admin' )
+    unless current_user and (current_user.id == id || current_user.role.name == 'admin')
       flash[:alert] = t('app.flash.codes.edit_denied')
       request.env['HTTP_REFERER'].nil? ? redirect_to(root_path) : redirect_to(:back)
       return false
