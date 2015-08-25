@@ -70,4 +70,7 @@ end
 group :production do
   # Heroku resources
   gem 'rails_12factor'
+
+  # Airbrake
+  gem 'airbrake'
 end
