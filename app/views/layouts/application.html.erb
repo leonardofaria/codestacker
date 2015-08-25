@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>codestacker <%= content_for(:title) %></title>
+  <title><%= page_title(content_for(:title)).html_safe %></title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag "themes/#{session[:style]}", media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
@@ -38,7 +38,7 @@
 
   <div class="pure-g">
     <aside class="pure-u-1 pure-u-md-1-4">
-      <h4><%= I18n.t('app.sidebar.title') %></h4>
+      <h4><%= t('app.sidebar.title') %></h4>
 
       <div class="login <%= 'logged' if user_signed_in? %>">
         <% if user_signed_in? %>
@@ -56,11 +56,9 @@
     </aside>
 
     <section class="pure-u-1 pure-u-md-3-4">
-      <div class="content">
-        <%= flash_message %>
+      <%= flash_message %>
 
-        <%= yield %>
-      </div>
+      <%= yield %>
     </section>
   </div>
 
@@ -72,5 +70,6 @@
 </footer>
 
 <%= javascript_include_tag 'menu', 'data-turbolinks-track': true %>
+<%= google_analytics('UA-157386-8') %>
 </body>
 </html>

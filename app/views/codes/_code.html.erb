@@ -7,8 +7,8 @@
 	<%= code.highlighted_code %>
 
 	<footer>
-	  created by <%= link_to code.user.username, user_code_path(code.user.username) %> &#8212;
-	  <%= l code.created_at, format: :short %> &#8212;
+	  <%= t('app.code.created_by') %> <%= link_to code.user.username, user_code_path(code.user.username) %> &#8212;
+		<%= l code.created_at, format: :short %> &#8212;
 
 	  <% if owner?(code.user_id) %>
 	  <%= link_to t('app.code.edit'), edit_code_path(code) %> &#8212;

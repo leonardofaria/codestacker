@@ -1,3 +1,8 @@
-<%= render partial: 'code', locals: { 'code': @code } %>
-
-<%= render partial: 'comments', locals: { 'code': @code } %>
+<% unless @code %>
+	<div class="content">
+		<%= title 'Not found :(' %>
+	</div>
+<% else %>
+	<%= render partial: 'code', locals: { 'code': @code } %>
+	<%= render partial: 'comments', locals: { 'code': @code } %>
+<% end %>
