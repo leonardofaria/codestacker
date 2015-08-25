@@ -1,5 +1,6 @@
 class CodesController < ApplicationController
   before_action :set_code, only: [:show, :embed, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show, :new]
 
   # GET /codes
   # GET /codes.json
@@ -85,6 +86,7 @@ class CodesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_code
       @code = Code.find(params[:id])
+      admin_or_owner_required(@code.user_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

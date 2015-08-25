@@ -20,8 +20,11 @@ module ApplicationHelper
     content_tag(:h2, page_title, options)
   end
 
-  # devise helpers
+  def owner?(id)
+    current_user && (current_user.role.name == 'admin' || current_user.id == id)
+  end
 
+  # devise helpers
   def resource_name
     :user
   end

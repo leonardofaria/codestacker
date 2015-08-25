@@ -8,15 +8,21 @@
 
 	<footer>
 	  created by <%= link_to code.user.username, user_code_path(code.user.username) %> &#8212;
-	  <%= l code.created_at, format: :short %>
-	  <% if code.tag_list.size > 0 %>
-	  	&#8212; tags:
-	  	<% for tag in code.tag_list.sort! %>
-	  		<%= link_to tag, tag_code_path(tag) %>
-	  	<% end %>
+	  <%= l code.created_at, format: :short %> &#8212;
+
+	  <% if owner?(code.user_id) %>
+	  <%= link_to t('app.code.edit'), edit_code_path(code) %> &#8212;
+	  <%= link_to t('app.code.delete'), code, method: :delete, data: { confirm: t('app.code.areyousure')} %> &#8212;
 	  <% end %>
 
-	  &#8212; <label for="embed-<%= code.id %>" class="tooltip-label">embed</label>
+	  <% if code.tag_list.size > 0 %>
+	  	tags:
+	  	<% for tag in code.tag_list.sort! %>
+	  		<%= link_to tag, tag_code_path(tag) %>
+	  	<% end %> &#8212;
+	  <% end %>
+
+	  <label for="embed-<%= code.id %>" class="tooltip-label">embed</label>
 	  <input type="checkbox" value="selected" id="embed-<%= code.id %>" class="tooltip-input">
 	  <span role="tooltip" class="tooltip-content">
 	    <a href="/tips/">see embed tips</a> or paste in your blog: <input type="text" value="<script src='<%= embed_code_url(code.id) %>'></script>" size="50" />

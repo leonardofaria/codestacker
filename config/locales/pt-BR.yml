@@ -86,10 +86,6 @@ pt-BR:
       more: e... naturalmente
 
     flash:
-      session:
-        login: Bem vindo.
-        logout: Até logo, cowboy!
-        conflict: Conflito Seu usuário do OpenID já está sendo usado por outro usuário no sistema.
       codes:
         edit_denied: Você não pode editar esse código.
         created: Código publicado

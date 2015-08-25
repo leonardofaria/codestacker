@@ -106,10 +106,6 @@ en:
       more: and... naturally
 
     flash:
-      session:
-        login: Logged in successfully.
-        logout: You have been logged out.
-        conflict: Conflict Your OpenID nickname is in use our account system for other user.
       codes:
         edit_denied: You can not edit this code.
         created: Code was successfully created.

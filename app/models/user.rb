@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
 	# This is in addition to a real persisted field like 'username'
 	attr_accessor :login
 
+  belongs_to :role
+  before_create :set_default_role
+
 	validates :username, :presence => true, :uniqueness => { :case_sensitive => false }
 
 	def self.find_for_database_authentication(warden_conditions)
@@ -19,5 +22,11 @@ class User < ActiveRecord::Base
     else
       where(conditions.to_h).first
     end
+  end
+
+  private
+
+  def set_default_role
+    self.role ||= Role.find_by_name('registered')
   end
 end

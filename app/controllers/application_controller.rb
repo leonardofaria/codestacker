@@ -7,6 +7,18 @@ class ApplicationController < ActionController::Base
   before_action :set_locale, :set_style
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  helper_method :admin_or_owner_required
+
+  def admin_or_owner_required(id)
+    unless (current_user.id == id || current_user.role.name == 'admin' )
+      flash[:alert] = t('app.flash.codes.edit_denied')
+      request.env['HTTP_REFERER'].nil? ? redirect_to(root_path) : redirect_to(:back)
+      return false
+    end
+  end
+
+  protected
+
   def set_style
     style = params[:style] ? params[:style] : session[:style] ? session[:style] : 'Monokai'
     session[:style] = style
@@ -23,8 +35,6 @@ class ApplicationController < ActionController::Base
 
     I18n.locale = locale
   end
-
-  protected
 
   def js_request?
     request.format.js?
