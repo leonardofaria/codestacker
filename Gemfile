@@ -56,6 +56,12 @@ gem 'devise-encryptable'
 # Webserver
 gem 'puma'
 
+# Airbrake
+gem 'airbrake'
+
+# Send email
+gem 'postmark-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -73,7 +79,4 @@ end
 group :production do
   # Heroku resources
   gem 'rails_12factor'
-
-  # Airbrake
-  gem 'airbrake'
 end

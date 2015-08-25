@@ -101,6 +101,12 @@ GEM
       mini_portile (~> 0.6.0)
     nprogress-rails (0.1.6.7)
     orm_adapter (0.5.0)
+    postmark (1.5.0)
+      json
+      rake
+    postmark-rails (0.10.0)
+      actionmailer (>= 3.0.0)
+      postmark (~> 1.5.0)
     puma (2.12.2)
     purecss-sass (0.6.0)
       sass (~> 3.3)
@@ -200,6 +206,7 @@ DEPENDENCIES
   mysql2
   nav_lynx
   nprogress-rails
+  postmark-rails
   puma
   purecss-sass
   rails (= 4.2.3)
