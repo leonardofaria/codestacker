@@ -56,9 +56,17 @@
     </aside>
 
     <section class="pure-u-1 pure-u-md-3-4">
+      <div class="ads_header">
+        <%= google_adsense_include_tag client: 'ca-pub-6265317430549220', slot: '2386519079', width: 728, height: 90 %>
+      </div>
+
       <%= flash_message %>
 
       <%= yield %>
+
+      <div class="ads_footer">
+        <%= google_adsense_include_tag client: 'ca-pub-6265317430549220', slot: '7152526580', width: 728, height: 90 %>
+      </div>
     </section>
   </div>
 

@@ -38,6 +38,7 @@ gem 'nprogress-rails'
 # Layout
 gem 'purecss-sass'
 gem 'nav_lynx'
+gem 'ads-rails'
 
 # Code's related
 gem 'acts-as-taggable-on'
