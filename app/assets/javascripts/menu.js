@@ -1,10 +1,10 @@
 (function (window, document) {
-  var menu = document.getElementById('menu'),
+  var menu = document.getElementsByTagName('header')[0],
   WINDOW_CHANGE_EVENT = ('onorientationchange' in window) ? 'orientationchange':'resize';
 
   function toggleHorizontal() {
     [].forEach.call(
-      document.getElementById('menu').querySelectorAll('.custom-can-transform'),
+      document.getElementsByTagName('header')[0].querySelectorAll('.custom-can-transform'),
       function(el){
         el.classList.toggle('pure-menu-horizontal');
       }

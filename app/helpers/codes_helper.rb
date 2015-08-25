@@ -1,5 +1,4 @@
 module CodesHelper
-
 	def styles_select_tag
 		styles = %w[Base16 Colorful Github Molokai Monokai MonokaySublime ThankfulEyes]
 

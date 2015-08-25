@@ -18,17 +18,17 @@
 
 $(document).on("page:change", function() {
 
-	$(".sidebar .tagcloud").each(function() {
+	$(".tagcloud").each(function() {
 	  $.data(this, "realHeight", $(this).height());
 	}).css({ overflow: "hidden", height: "240px" });
 
 	$('.tagcloud_before').on('click', function() {
-		if ($('.sidebar .tagcloud').height() == $('.sidebar .tagcloud').data("realHeight")) {
-			$('.sidebar .tagcloud').animate({ height: '160px' }, 600).css("margin-bottom", 0);
+		if ($('.tagcloud').height() == $('.tagcloud').data("realHeight")) {
+			$('.tagcloud').animate({ height: '160px' }, 600).css("margin-bottom", 0);
 			$('.tagcloud_after').show();
 			$('.tagcloud_before').text('Tagcloud +');
 		} else {
-			$('.sidebar .tagcloud').animate({ height: $('.sidebar .tagcloud').data("realHeight") }, 600).css("margin-bottom", 5);
+			$('.tagcloud').animate({ height: $('.tagcloud').data("realHeight") }, 600).css("margin-bottom", 5);
 			$('.tagcloud_before').text('Tagcloud -');
 			$('.tagcloud_after').hide();
 		}

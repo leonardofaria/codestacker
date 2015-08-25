@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="page">
-  <div class="custom-wrapper pure-g" id="menu">
+  <header>
     <div class="pure-u-1 pure-u-md-6-24">
       <div class="pure-menu">
         <%= link_to 'codestacker', root_path, class: 'pure-menu-heading custom-brand' %>
@@ -18,55 +18,52 @@
     </div>
 
     <div class="pure-u-1 pure-u-md-14-24">
-      <div class="pure-menu pure-menu-horizontal custom-can-transform">
-        <ul class="pure-menu-list">
-          <li class="pure-menu-item"><%= nav_link_to t('app.menu.about'), about_path, class: 'pure-menu-link' %></li>
+      <nav class="custom-can-transform">
+        <ul>
+          <li><%= nav_link_to t('app.menu.about'), about_path %></li>
           <% unless user_signed_in? %>
-          <li class="pure-menu-item"><%= nav_link_to t('app.menu.signup'), new_registration_path(resource_name), class: 'pure-menu-link' %></li>
-          <li class="pure-menu-item"><%= nav_link_to t('app.menu.post_as_anonymous'), new_code_path, class: 'pure-menu-link' %></li>
+          <li><%= nav_link_to t('app.menu.signup'), new_registration_path(resource_name) %></li>
+          <li><%= nav_link_to t('app.menu.post_as_anonymous'), new_code_path %></li>
           <% else %>
-          <li class="pure-menu-item"><%= nav_link_to t('app.menu.post'), new_code_path, class: 'pure-menu-link' %></li>
+          <li><%= nav_link_to t('app.menu.post'), new_code_path %></li>
           <% end %>
         </ul>
-      </div>
+      </nav>
     </div>
 
     <div class="pure-u-1 pure-u-md-4-24">
       <%= styles_select_tag %>
     </div>
-  </div>
+  </header>
 
-  <div class="container">
+  <div class="pure-g">
+    <aside class="pure-u-1 pure-u-md-1-4">
+      <h4><%= I18n.t('app.sidebar.title') %></h4>
 
-    <div class="pure-g">
-      <div class="sidebar pure-u-1 pure-u-md-1-4">
-        <h4 class="subtitle"><%= I18n.t('app.sidebar.title') %></h4>
-
-        <div class="l-box">
-          <% if user_signed_in? %>
-            Welcome: <b><%= current_user.login %></b>
-            <%= link_to "Edit my account", edit_user_registration_path %>
-            <%= link_to "Logout", destroy_user_session_path, method: 'delete' %>
-          <% else %>
-            <%= render 'devise/sessions/form' %>
-          <% end %>
-        </div>
-
-        <div class="tagcloud_before">Tagcloud +</div>
-        <%= render :partial => 'codes/tagcloud' %>
-        <div class="tagcloud_after"></div>
+      <div class="login <%= 'logged' if user_signed_in? %>">
+        <% if user_signed_in? %>
+          <%= link_to image_tag(current_user.avatar), user_code_path(current_user.username), class: 'pure-thumb pure-thumb-eliptical' %>
+          <%= link_to "Edit my account", edit_user_registration_path %><br/>
+          <%= link_to "Logout", destroy_user_session_path, method: 'delete' %>
+        <% else %>
+          <%= render 'devise/sessions/form' %>
+        <% end %>
       </div>
 
-      <div class="pure-u-1 pure-u-md-3-4">
-        <div class="l-box content">
-          <%= flash_message %>
+      <div class="tagcloud_before">Tagcloud +</div>
+      <%= render partial: 'codes/tagcloud' %>
+      <div class="tagcloud_after"></div>
+    </aside>
 
-          <%= yield %>
-        </div>
+    <section class="pure-u-1 pure-u-md-3-4">
+      <div class="content">
+        <%= flash_message %>
+
+        <%= yield %>
       </div>
-    </div>
-
+    </section>
   </div>
+
 </div>
 
 <footer id="footer">

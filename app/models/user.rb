@@ -15,6 +15,11 @@ class User < ActiveRecord::Base
 
 	validates :username, :presence => true, :uniqueness => { :case_sensitive => false }
 
+  def avatar
+    gravatar_id = Digest::MD5.hexdigest(email.downcase)
+    "http://gravatar.com/avatar/#{gravatar_id}.png"
+  end
+
 	def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
