@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         # :encryptable, encryptor: :restful_authentication_sha1,
+         :encryptable, encryptor: :restful_authentication_sha1,
          :authentication_keys => [:login]
 
 	# Virtual attribute for authenticating by either username or email
@@ -32,6 +32,6 @@ class User < ActiveRecord::Base
   private
 
   def set_default_role
-    self.role ||= Role.find_by_name('registered')
+    self.role ||= Role.find_by_name('coder')
   end
 end
