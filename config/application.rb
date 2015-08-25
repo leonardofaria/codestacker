@@ -35,5 +35,8 @@ module Codestacker4
     config.action_view.field_error_proc = Proc.new { |html_tag, instance|
       html_tag.html_safe
     }
+
+    config.action_mailer.delivery_method = :postmark
+    config.action_mailer.postmark_settings = { api_token: ENV['POSTMARK_API_TOKEN'] }
   end
 end
