@@ -25,15 +25,13 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    case request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
-    when 'pt'
-    when 'pt-PT'
-      locale = 'pt-BR'
+    accept_language = request.env['HTTP_ACCEPT_LANGUAGE'] || ""
+    match_data = accept_language.match(/^[a-z]{2}(-[A-Z]{2})?/)
+    if match_data && (match_data[0] == 'pt' || match_data[0] == 'pt-PT' || match_data[0] == 'pt-BR')
+      I18n.locale = 'pt-BR'
     else
-      locale = I18n.default_locale
+      I18n.locale = I18n.default_locale
     end
-
-    I18n.locale = locale
   end
 
   def js_request?
