@@ -12,11 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require nprogress
-//= require nprogress-turbolinks
 
-$(document).on("page:change", function() {
+$(document).on("ready", function() {
 
 	$(".tagcloud").each(function() {
 	  $.data(this, "realHeight", $(this).height());
@@ -33,11 +30,5 @@ $(document).on("page:change", function() {
 			$('.tagcloud_after').hide();
 		}
 	});
-
-	if (window._gaq != null) {
-		_gaq.push(['_trackPageview']);
-	} else if (window.pageTracker != null) {
-		pageTracker._trackPageview();
-	}
 
 });
