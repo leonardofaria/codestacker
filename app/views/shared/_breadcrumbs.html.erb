@@ -1,0 +1,33 @@
+<h5>
+	<%= t('app.breadcrumbs') %>:
+	<a href="/">codestacker</a> &rarr;
+
+<% if controller.controller_name == "codes" %>
+	<% if controller.action_name == "new" %>
+		<%= link_to t('app.post.new'), new_code_path %>
+	<% elsif controller.action_name == "edit" %>
+		<%= link_to "editing: #{@code.title}", edit_code_path(@code) %>
+	<% elsif controller.action_name == "index" %>
+
+		<%= link_to 'codes', codes_url %>
+		<%= link_to '[RSS]', codes_url(format: 'rss') %>
+
+		<% if params[:user] %>
+			&rarr;
+			<%= link_to params[:user], user_code_path(params[:user]) %>
+			<%= link_to '[RSS]', user_code_path(params[:user], format: 'rss') %>
+		<% elsif params[:tag] %>
+			&rarr; tag
+			<%= link_to params[:tag], tag_code_path(params[:tag]) %>
+			<%= link_to '[RSS]', tag_code_url(params[:tag], format: 'rss') %>
+		<% end %>
+
+	<% elsif controller.action_name == "show" %>
+
+		<%= link_to 'codes', codes_url %>
+		<%= link_to '[RSS]', codes_url(format: 'rss') %>
+		&rarr; <%= link_to @code.title, code_path(@code) if @code %>
+
+	<% end %>
+<% end %>
+</h5>

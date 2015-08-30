@@ -28,6 +28,12 @@ module ApplicationHelper
     return "codestacker &mdash; we love code"
   end
 
+  def rss_links
+    return auto_discovery_link_tag(:rss, tag_code_url(params[:tag], format: 'rss')) if params[:tag]
+    return auto_discovery_link_tag(:rss, user_code_url(params[:user], format: 'rss')) if params[:user]
+    return auto_discovery_link_tag(:rss, codes_url(format: 'rss'))
+  end
+
   def google_analytics(id)
     content_tag :script do
       "

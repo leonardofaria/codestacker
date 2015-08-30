@@ -4,8 +4,8 @@ codestacker was originally coded in 2008 using Ruby on Rails 2.1. This project i
 
 ## TODO
 
-- [ ] Add breadcrumbs
+- [x] Add breadcrumbs
 - [ ] Generate meta tags and open graph data
-- [ ] Add feeds support
+- [x] Add feeds support
 - [x] Add Gravatar support
 - [ ] Optimize code according Rails Best Practices and rubocop

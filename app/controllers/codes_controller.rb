@@ -9,6 +9,11 @@ class CodesController < ApplicationController
     tag = params[:tag] ||= nil
 
     @codes = Code.get_codes(current_user, user, tag).paginate(page: params[:page])
+
+    respond_to do |format|
+      format.html
+      format.rss { render layout: false }
+    end
   end
 
   # GET /codes/1

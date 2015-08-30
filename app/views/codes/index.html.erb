@@ -1,3 +1,5 @@
+<%= render partial: 'shared/breadcrumbs' %>
+
 <% @codes.each do |code| %>
 
   <%= render partial: 'code', locals: { 'code': code } %>

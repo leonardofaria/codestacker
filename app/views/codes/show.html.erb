@@ -3,6 +3,7 @@
 		<%= title 'Not found :(' %>
 	</div>
 <% else %>
+	<%= render partial: 'shared/breadcrumbs' %>
 	<%= render partial: 'code', locals: { 'code': @code } %>
 	<%= render partial: 'comments', locals: { 'code': @code } %>
 <% end %>
