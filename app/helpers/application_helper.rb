@@ -52,6 +52,16 @@ module ApplicationHelper
     current_user && (current_user.role.name == 'admin' || current_user.id == id)
   end
 
+  def meta_tags
+    keywords = "codestacker, code, php, ruby, snippet, resource, actionscript, rails, yml, sql"
+    keywords = @code.tag_list if @code
+
+    description = "codestacker is a community to share snippets easily!"
+    description = @code.description.html_safe if @code and @code.description
+
+    "<meta name=\"keywords\" content=\"#{keywords}\">".html_safe + "<meta name=\"description\" content=\"#{description}\">".html_safe
+  end
+
   # devise helpers
   def resource_name
     :user
