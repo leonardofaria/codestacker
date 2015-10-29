@@ -1,6 +1,6 @@
 class CodesController < ApplicationController
   before_action :set_code, only: [:show, :embed, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show, :new, :create]
+  before_action :authenticate_user!, except: [:index, :show, :create]
 
   # GET /codes
   # GET /codes.json
