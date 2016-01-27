@@ -1,4 +1,5 @@
 Airbrake.configure do |c|
-  c.project_key = 'a1b2c3d4e5f6g780'
-  c.project_id = 115036
+	c.ignore_environments = %w(development test)
+  c.project_key = ENV['AIRBRAKE_PROJECT_KEY']
+  c.project_id = ENV['AIRBRAKE_PROJECT_ID']
 end
