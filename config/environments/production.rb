@@ -80,3 +80,5 @@ Rails.application.configure do
 end
 
 Rails.application.routes.default_url_options[:host] = 'http://codestacker.com'
+ActionMailer::Base.asset_host                 = "http://codestacker.com"
+ActionMailer::Base.default_url_options[:host] = "codestacker.com"
