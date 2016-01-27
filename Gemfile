@@ -42,8 +42,7 @@ gem 'ads-rails'
 
 # Code's related
 gem 'acts-as-taggable-on'
-gem 'rails_autolink'
-gem 'RedCloth'
+gem 'redcarpet'
 gem 'rouge'
 
 # Pagination

@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    RedCloth (4.2.9)
     actionmailer (4.2.5.1)
       actionpack (= 4.2.5.1)
       actionview (= 4.2.5.1)
@@ -139,8 +138,6 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_autolink (1.1.6)
-      rails (> 3.1)
     rails_serve_static_assets (0.0.4)
     rails_stdout_logging (0.0.4)
     railties (4.2.5.1)
@@ -151,6 +148,7 @@ GEM
     rake (10.5.0)
     rdoc (4.2.1)
       json (~> 1.4)
+    redcarpet (3.3.4)
     responders (2.1.1)
       railties (>= 4.2.0, < 5.1)
     rouge (1.10.1)
@@ -193,7 +191,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  RedCloth
   acts-as-taggable-on
   ads-rails
   airbrake
@@ -212,7 +209,7 @@ DEPENDENCIES
   purecss-sass
   rails (= 4.2.5.1)
   rails_12factor
-  rails_autolink
+  redcarpet
   rouge
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
