@@ -1,3 +1,4 @@
-Airbrake.configure do |config|
-  config.api_key = '6fad897f5cbdf4d1f8ab04b6e5226138'
+Airbrake.configure do |c|
+  c.project_key = 'a1b2c3d4e5f6g780'
+  c.project_id = 115036
 end
