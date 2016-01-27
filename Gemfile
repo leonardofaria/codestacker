@@ -55,9 +55,6 @@ gem 'devise-encryptable'
 # Webserver
 gem 'puma'
 
-# Airbrake
-gem 'airbrake'
-
 # Send email
 gem 'postmark-rails'
 
