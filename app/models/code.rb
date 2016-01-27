@@ -15,6 +15,33 @@ class Code < ActiveRecord::Base
 
   acts_as_taggable
 
+  def markdown_description
+     options = {
+      filter_html: true,
+      hard_wrap: true,
+      link_attributes: { rel: 'nofollow', target: "_blank" },
+      space_after_headers: true,
+      fenced_code_blocks: true
+    }
+
+    extensions = {
+      autolink: true,
+      highlight: true,
+      strikethrough: true,
+      quote: true,
+      no_images: true,
+      no_styles: true,
+      prettify: true,
+      superscript: true,
+      footnotes: true,
+      tables: true
+    }
+
+    renderer = Redcarpet::Render::HTML.new(options)
+    markdown = Redcarpet::Markdown.new(renderer, extensions)
+    markdown.render(description).html_safe
+  end
+
   def highlighted_code
     # http://goo.gl/5sDQte
     unless Rouge::Lexer.find(language.name)
