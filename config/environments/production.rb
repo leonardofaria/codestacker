@@ -78,8 +78,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_controller.asset_host = "codestacker.com"
+  config.action_controller.asset_host = "codestacker.herokuapp.com"
 end
 
-Rails.application.routes.default_url_options[:host] = 'http://codestacker.com'
-ActionMailer::Base.asset_host                 = "http://codestacker.com"
+Rails.application.routes.default_url_options[:host] = 'https://codestacker.herokuapp.com/'
+ActionMailer::Base.asset_host                 = "https://codestacker.herokuapp.com/"
